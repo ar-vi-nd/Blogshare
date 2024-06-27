@@ -15,7 +15,7 @@ const RTE = ({name,control,label,defaultValue = ""}) => {
         control={control}
         render={({field: {onChange}})=>{
           return  <Editor
-          apiKey="g2et2v8tj20duydlz9enz4btwxa14hunszy89evhpo1augw5"
+          apiKey={timymceApiKey}
             initialValue={defaultValue}
             init={{
                 initialValue : defaultValue,
