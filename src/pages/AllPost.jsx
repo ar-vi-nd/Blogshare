@@ -16,11 +16,11 @@ function AllPosts() {
     })},[userData])
 
   return (
-    <div className='w-full py-8'>
+    <div className='w-full min-h-96 py-8'>
         <Container>
-            <div className='flex flex-wrap'>
-                {posts.length==0?<div className='p-2 w-1/4'>No Posts Yet.</div>:posts.map((post) => (
-                    <div key={post?.$id} className='p-2 w-1/4'>
+            <div className='w-auto flex flex-wrap justify-evenly'>
+                {posts.length==0?<div className='p-2 w-1/4 min-w-96'>No Posts Yet.</div>:posts.map((post) => (
+                    <div key={post?.$id} className='p-2 w-1/4 min-w-96'>
                         <PostCard {...post} />
                     </div>
                 ))}
@@ -28,6 +28,6 @@ function AllPosts() {
             </Container>
     </div>
   )
-}
+}   
 
 export default AllPosts
