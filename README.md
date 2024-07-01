@@ -1,3 +1,7 @@
+Link to the website
+
+https://blogshare-black.vercel.app/
+
 # React + Vite
 
 THis app is made with react and appwrite .
