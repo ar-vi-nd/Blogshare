@@ -1,9 +1,8 @@
 import { appwriteUrl,appwriteProjectId,appwriteDatabaseId,appwriteCollectionId,appwriteBucketId } from "../conf/conf";
 
-import { Client,ID,Databases, Query, Storage } from "appwrite";
+import { Client,ID,Databases, Query, Storage,Account } from "appwrite";
 
 class Service {
-
     client = new Client()
     constructor(){
         this.client.setEndpoint(appwriteUrl).setProject(appwriteProjectId)
@@ -12,14 +11,14 @@ class Service {
 
     }
 
-    async createPost({title,slug,content,featuredImage,status,userId}){
+    async createPost({title,slug,content,featuredImage,status,userId,uploadedBy}){
         try {
             const response = await this.databases.createDocument(
                 appwriteDatabaseId,
                 appwriteCollectionId,
                 slug,
                 {
-                  title,content,featuredImage,status,userId  
+                  title,content,featuredImage,status,userId,uploadedBy 
                 }
 
             )
@@ -29,15 +28,15 @@ class Service {
         }
     }
 
-    async updatePost(documentId,{title,slug,content,featuredImage,status,userId}){
+    async updatePost(documentId,{title,slug,content,featuredImage,status,userId,uploadedBy}){
 
         try {
-            return this.databases.updateDocument(
+            return await this.databases.updateDocument(
                 appwriteDatabaseId,
                 appwriteCollectionId,
                 documentId,
                 {
-                    title,content,featuredImage,status,userId
+                    title,content,featuredImage,status,userId,uploadedBy
                 }
             )
         } catch (error) {
@@ -48,7 +47,7 @@ class Service {
 
     async deletePost(slug){
         try {
-            return this.databases.deleteDocument(appwriteDatabaseId,appwriteCollectionId,slug)
+            return await this.databases.deleteDocument(appwriteDatabaseId,appwriteCollectionId,slug)
         } catch (error) {
             console.log("Error Deleting Post")
         }
@@ -56,7 +55,8 @@ class Service {
 
     async getPost(slug){
         try {
-            return this.databases.getDocument(appwriteDatabaseId,appwriteCollectionId,slug)
+            const response = await this.databases.getDocument(appwriteDatabaseId,appwriteCollectionId,slug)
+            return response
         } catch (error) {
             console.log("Error fetching post")
         }

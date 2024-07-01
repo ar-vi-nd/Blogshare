@@ -67,6 +67,8 @@ export default function Post() {
                 <div className="browser-css">
                     {parse(post?.content)}
                     </div>
+
+                <div> Author : {post?.uploadedBy===(null||"anonyomous")?"Anonyomous":post.uploadedBy}</div>
             </Container>
         </div>
     ) : null;

@@ -55,6 +55,14 @@ const Login = () => {
         setError(error)
     }
 
+    const handleOAuthLogin = ()=>{
+        try {
+         authService.oAuthLogin()
+        } catch (error) {
+            console.log("error logging using oAuth ",error)
+        }
+    }
+
 
     return (
         <div  className='flex items-center justify-center w-full'>
@@ -125,6 +133,7 @@ const Login = () => {
                 </div>
             </form>
     
+                    <Button type='button' className='w-full' disabled={isSubmitting} onClick={handleOAuthLogin}> Sign In Using Google</Button>
             </div>
         </div>
       )
