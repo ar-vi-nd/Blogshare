@@ -37,7 +37,7 @@ const Header = () => {
                     {navItems.map((item)=>( item.active?<NavLink to={item.slug} className={({isActive}) =>
                                         `${isActive?"font-bold text-white":"text-black"}`
                                     }><li key={item.name}>
-                        <button className='inline-block px-4 py-2 duration-200 bg-blue-400 hover:bg-blue-300 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
+                        <button className='inline-block px-4 py-2 duration-200 bg-blue-400 hover:bg-blue-300 hover:px-6 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
                     </li></NavLink>:null))}
                     {authStatus&&(<li><LogoutBtn /></li>)}
                 </ul>
