@@ -5,8 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 
 // here featured image is actually the url of the image stored in the bucket ie database, so to access that image we made a method "getfilepreview in appwrite service "
 
-const PostCard = ({$id,title,featuredImage}) => {
+const PostCard = ({$id,title,featuredImage,uploadedBy}) => {
   const navigate = useNavigate()
+  
 
 
   return (
@@ -17,6 +18,7 @@ const PostCard = ({$id,title,featuredImage}) => {
     </div>
 
     <h2 className="text-xl font-bold">{title}</h2>
+    <p> Author : {uploadedBy==null || uploadedBy=="anonyomous"?"Anonyomous":uploadedBy}</p>
     </div>
   )
 }

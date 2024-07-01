@@ -21,6 +21,8 @@ export class AuthService{
             this.account = new Account(this.client);
     }
 
+
+
     async createAccount({email,password,name}){
 
         try {
@@ -35,6 +37,22 @@ export class AuthService{
             }
         } catch (error) {
             throw  error
+        }
+    }
+
+
+    async oAuthLogin(){
+        try {
+
+            this.account.createOAuth2Session(
+                'google', // provider
+                'http://localhost:5173/', // redirect here on success
+                'http://localhost:5173/login', // redirect here on failure
+            );
+            
+        } catch (error) {
+            console.log("error logging in with oAuth ",error)
+            throw error
         }
     }
 
@@ -59,7 +77,7 @@ export class AuthService{
         }catch (error) {
             // console.log("Appwrite serive :: getCurrentUser :: error", error);
         return null
-    }}
+    }} 
 
     async logout(){
         try {

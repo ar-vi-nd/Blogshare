@@ -24,7 +24,7 @@ const Signup = () => {
     const formSubmitHandler = async(data)=>{
         setError(null)
         try {
-
+            console.log(data)
             const session = await authService.createAccount(data)
             console.log(session)
             if(session){
@@ -84,7 +84,7 @@ const Signup = () => {
 
             </div>
 
-                    <Input label = "Full Name :" placeholder = "Enter full name" {...register("fullname",{
+                    <Input label = "Full Name :" placeholder = "Enter full name" {...register("name",{
                         required : {
                             value:true,
                             message: "Full Name cannot be empty"

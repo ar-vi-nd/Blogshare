@@ -18,7 +18,8 @@ const PostForm = ({post}) => {
             title : post?.title||"",
             slug : post?.$id || "",
             status : post?.status|| "",
-            content : post?.content || ""
+            content : post?.content || "",
+            uploadedBy : post?.uploadedBy || ""
 
         }
     })
@@ -193,9 +194,12 @@ const PostForm = ({post}) => {
             <div className='bg-red-500 color-white'>{error&&error.image?.message}</div>
             
 
-            <SelectBox label="Status" options={["active","inactive"]} className="mb-4" {...register("status",{required:{value:true,message:"Options required"}})}/>
+            <SelectBox label="Status :" options={["active","inactive"]} className="mb-4" {...register("status",{required:{value:true,message:"Options required"}})}/>
 
             <div className='bg-red-500 color-white'>{error&&error.status?.message}</div>
+
+            <SelectBox label="Post by :" options={["anonyomous",userData?.name]} className="mb-4" {...register("uploadedBy",{required:{value:true,message:"Options required"}})}/>
+
 
 
             <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full" disabled={isSubmitting}>
