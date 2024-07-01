@@ -4,7 +4,7 @@ import { logout } from '../../store/authSlice'
 import authService from '../../appwrite/auth'
 
 
-const LogoutBtn = () => {
+const LogoutBtn = ({isOpen}) => {
 
     const dispatch = useDispatch()
 
@@ -13,7 +13,7 @@ const LogoutBtn = () => {
     }
   return (
 
-   <button className='inline-block px-6 py-2 text-white duration-200 bg-blue-400 hover:bg-red-500 rounded-full' onClick={logoutHandler}>Logout</button>
+   <button className={`m-1 inline-block px-6 py-2 text-white duration-200 bg-blue-400 hover:bg-red-500 rounded-full`} onClick={logoutHandler}>Logout</button>
   )
 }
 
