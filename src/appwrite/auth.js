@@ -46,8 +46,8 @@ export class AuthService{
 
             this.account.createOAuth2Session(
                 'google', // provider
-                'http://localhost:5173/', // redirect here on success
-                'http://localhost:5173/login', // redirect here on failure
+                'https://blogshare-black.vercel.app/', // redirect here on success
+                'https://blogshare-black.vercel.app/login/', // redirect here on failure
             );
             
         } catch (error) {
