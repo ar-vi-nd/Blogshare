@@ -22,7 +22,7 @@ const Header = () => {
         <header className='py-3 shadow bg-rose-200'>
             <Container>
                 <nav className='flex items-center justify-between flex-wrap'>
-                    <div className='flex items-center flex-shrink-0 mr-6'>
+                    <div className='flex items-center flex-shrink-0 mr-6 overflow-hidden'>
                         <Link to="/">
                             <Logo width='50px' />
                         </Link>
