@@ -34,11 +34,11 @@ const Header = () => {
                 </div>
 
                 <ul className='flex ml-auto'>
-                    {navItems.map((item)=>( item.active?<NavLink to={item.slug} className={({isActive}) =>
+                    {navItems.map((item)=>( item.active?<li key={item.name}><NavLink to={item.slug} className={({isActive}) =>
                                         `${isActive?"font-bold text-black":"text-white"}`
-                                    }><li key={item.name}>
+                                    }>
                         <button className='inline-block px-4 py-2 duration-200 bg-blue-400 hover:bg-blue-500 hover:px-6 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
-                    </li></NavLink>:null))}
+                        </NavLink></li>:null))}
                     {authStatus&&(<li><LogoutBtn textColor="text-white" /></li>)}
                 </ul>
             </nav>

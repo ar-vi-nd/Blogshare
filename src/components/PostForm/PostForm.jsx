@@ -198,8 +198,8 @@ const PostForm = ({post}) => {
 
             <div className='bg-red-500 color-white'>{error&&error.status?.message}</div>
 
-            <SelectBox label="Post by :" options={["anonyomous",userData?.name]} className="mb-4" {...register("uploadedBy",{required:{value:true,message:"Options required"}})}/>
-
+            {userData&&<SelectBox label="Post by :" options={["anonyomous",userData?.name]} className="mb-4" {...register("uploadedBy",{required:{value:true,message:"Options required"}})}/>
+}
 
 
             <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full" disabled={isSubmitting}>

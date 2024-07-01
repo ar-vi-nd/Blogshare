@@ -129,7 +129,7 @@ const Login = () => {
                         {error&&error.password?.message}
                     </div>
     
-                    <Button type='submit' className='w-full' textColor='text-white' disabled={isSubmitting}> Sign In</Button>
+                    <Button type='submit' className={`w-full ${isSubmitting?"bg-blue-300":"bg-blue-500"}`}  textColor='text-white' disabled={isSubmitting}> Sign In</Button>
                 </div>
             </form>
             

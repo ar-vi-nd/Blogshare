@@ -128,7 +128,7 @@ const Signup = () => {
                         {error&&error.password?.message}
                     </div>
 
-                         <Button type="submit" className="w-full"  disabled={isSubmitting}>
+                         <Button type="submit" className={`w-full ${isSubmitting?"bg-blue-300":"bg-blue-500"}`}   disabled={isSubmitting}>
                             Create Account
                         </Button>
 
