@@ -24,7 +24,7 @@ const Header = () => {
 
 
   return (
-    <header className='py-3 shadow bg-orange-300'>
+    <header className='py-3 shadow bg-rose-200'>
         <Container>
             <nav className='flex'>
                 <div className='mr-4'>
@@ -35,11 +35,11 @@ const Header = () => {
 
                 <ul className='flex ml-auto'>
                     {navItems.map((item)=>( item.active?<NavLink to={item.slug} className={({isActive}) =>
-                                        `${isActive?"font-bold text-white":"text-black"}`
+                                        `${isActive?"font-bold text-black":"text-white"}`
                                     }><li key={item.name}>
-                        <button className='inline-block px-4 py-2 duration-200 bg-blue-400 hover:bg-blue-300 hover:px-6 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
+                        <button className='inline-block px-4 py-2 duration-200 bg-blue-400 hover:bg-blue-500 hover:px-6 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
                     </li></NavLink>:null))}
-                    {authStatus&&(<li><LogoutBtn /></li>)}
+                    {authStatus&&(<li><LogoutBtn textColor="text-white" /></li>)}
                 </ul>
             </nav>
         </Container>

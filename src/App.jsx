@@ -46,7 +46,7 @@ useEffect(()=>{
 //   )
 
 
-return !loading?(<div className='min-h-screen text-center flex-wrap bg-orange-100'> 
+return !loading?(<div className='min-h-screen text-center flex-wrap bg-rose-100'> 
 <Header></Header>
  <main>
   <Outlet/>

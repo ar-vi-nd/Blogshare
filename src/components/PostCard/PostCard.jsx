@@ -11,7 +11,7 @@ const PostCard = ({$id,title,featuredImage,uploadedBy}) => {
 
 
   return (
-    <div className='bg-gray-100 rounded-xl p-4 cursor-pointer hover:bg-yellow-100 hover:scale-110 duration-300' onClick={() => { navigate(`/post/${$id}`); }}>
+    <div className='bg-white rounded-xl p-4 cursor-pointer hover:bg-cyan-300 hover:scale-110 duration-300' onClick={() => { navigate(`/post/${$id}`); }}>
     <div className='max-w-full h-48 flex justify-center mb-4 overflow-hidden'>
       <img src={appwriteService.getFilePreview(featuredImage)} alt={title} className='rounded-xl transform transition-transform duration-300 hover:scale-110' />
     </div>
