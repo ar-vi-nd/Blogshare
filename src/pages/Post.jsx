@@ -68,7 +68,7 @@ export default function Post() {
                     {parse(post?.content)}
                     </div>
 
-                <div> Author : {post?.uploadedBy===(null||"anonyomous")?"Anonyomous":post.uploadedBy}</div>
+                <div> Author : {(post?.uploadedBy==null||post?.uploadedBy=="anonyomous")?"Anonyomous":post.uploadedBy}</div>
             </Container>
         </div>
     ) : null;
