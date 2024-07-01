@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container,Logo} from "../index"
 import LogoutBtn from './LogoutBtn'
-import { Link } from 'react-router-dom'
+import { Link , NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -34,9 +34,11 @@ const Header = () => {
                 </div>
 
                 <ul className='flex ml-auto'>
-                    {navItems.map((item)=>( item.active?<li key={item.name}>
-                        <button className='inline-block px-6 py-2 duration-200 bg-blue-400 hover:bg-blue-100 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
-                    </li>:null))}
+                    {navItems.map((item)=>( item.active?<NavLink to={item.slug} className={({isActive}) =>
+                                        `${isActive?"font-bold text-white":"text-black"}`
+                                    }><li key={item.name}>
+                        <button className='inline-block px-4 py-2 duration-200 bg-blue-400 hover:bg-blue-300 rounded-full' onClick={()=>{navigate(item.slug)}}>{item.name}</button>
+                    </li></NavLink>:null))}
                     {authStatus&&(<li><LogoutBtn /></li>)}
                 </ul>
             </nav>

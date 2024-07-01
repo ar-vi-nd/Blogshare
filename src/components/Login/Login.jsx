@@ -129,11 +129,11 @@ const Login = () => {
                         {error&&error.password?.message}
                     </div>
     
-                    <Button type='submit' className='w-full' disabled={isSubmitting}> Sign In</Button>
+                    <Button type='submit' className='w-full' textColor='text-white' disabled={isSubmitting}> Sign In</Button>
                 </div>
             </form>
-    
-                    <Button type='button' className='w-full' disabled={isSubmitting} onClick={handleOAuthLogin}> Sign In Using Google</Button>
+            
+                    <Button type='button' className='w-full mt-2 bg-white' textColor='text-black' disabled={isSubmitting} onClick={handleOAuthLogin}> Sign In With Google</Button>
             </div>
         </div>
       )
